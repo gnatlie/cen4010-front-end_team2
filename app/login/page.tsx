@@ -1,33 +1,52 @@
 "use client";
 
-import React, { useState, FormEvent } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/navigation";
 
+/**
+ * Login page component
+ * 
+ * The component is a simple login form that sends a POST request to the server
+ * with the username and password. If the request is successful, the user is
+ * redirected to the home page. Otherwise, an error message is displayed.
+ * 
+ */
 const Login: React.FC = () => {
   const router = useRouter();
-  const [email, setEmail] = useState<string>('');
+  const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
+  const [isClient, setIsClient] = useState(false);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  // Set is client to true when the component is mounted to avoid SSR issues
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    if (!isClient) return;
 
-    // Call our Next.js API route which forwards the request
-    const res = await fetch('http://localhost:8080/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
-    });
+    // Send POST request to the server
+    try {
+      const res = await fetch('http://localhost:8080/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
 
-    if (res.ok) {
-      // TODO: Store the token in a cookie
-      // Redirect to the home page
-      router.push('/');
-    } else {
-      const data = await res.json();
-      setError(data.message || 'Something went wrong');
+      if (res.ok) {
+        console.log('Login successful');
+        router.push('/');
+      } else {
+        const data = await res.json();
+        setError(data.message || 'Something went wrong');
+      }
+    } catch (error) {
+      setError('Failed to connect to server.' + error);
     }
   };
 
@@ -36,13 +55,13 @@ const Login: React.FC = () => {
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: '1rem' }}>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="username">Username:</label>
           <br />
           <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+            id="username"
+            type="username"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
             required
             style={{ width: '100%', padding: '0.5rem' }}
           />
