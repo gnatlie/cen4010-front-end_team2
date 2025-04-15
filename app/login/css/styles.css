@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+.page_style{
+    background-color: #F8E8C8;
+    overflow: hidden;
+    height: 100vh;
+    max-height: 100vh;
+    max-width: 100vw;
+    margin: 2rem auto;
+    padding: 1rem; 
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
 .pixelify-sans-title {
     font-family: "Pixelify Sans", sans-serif;
     font-optical-sizing: auto;
@@ -6,26 +20,35 @@
 }
 
 .h1{
-    text-align: center;
+    display: inline-block;
     background: #C89F70;
     font-family: "Pixelify Sans", sans-serif;
     font-size: 30px;
+    border-radius: 15px;
+    width: 20vw;
 }
 
 .username_label{
     background-color: #C89F70;
+    border-radius: 15px;
+    width: 20vw;
 }
 
 .password_label{
     background-color: #C89F70;
+    border-radius: 15px;
+    width: 20vw;
 }
 
 .login_button{
     background-color: #C89F70;
+    font-family: "Pixelify Sans", sans-serif;
+    color: #705848;
+    border-radius: 15px;
 }
 
 input::placeholder {
     font-family: "Pixelify Sans", sans-serif;
     color: #705848;
     opacity: 1;
-  }
+}
