@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/navigation";
+import './css/styles.css';
 
 /**
  * Login page component
@@ -52,10 +53,17 @@ const Login: React.FC = () => {
 
   return (
     <div style={{ maxWidth: '400px', margin: '2rem auto', padding: '1rem', border: '1px solid #ccc' }}>
-      <h1>Login</h1>
+      <head>
+      <style>
+      @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+      </style>
+      </head>
+      <div className="h1">
+        <p style={{color: "#705848"}}>Pocket<p style={{color: "#A4CF6F"}}>Pet</p></p>
+      </div>
+      
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: '1rem' }}>
-          <label htmlFor="username">Username:</label>
           <br />
           <input
             id="username"
@@ -64,10 +72,11 @@ const Login: React.FC = () => {
             onChange={e => setUsername(e.target.value)}
             required
             style={{ width: '100%', padding: '0.5rem' }}
+            className="username_label"
+            placeholder="username"
           />
         </div>
         <div style={{ marginBottom: '1rem' }}>
-          <label htmlFor="password">Password:</label>
           <br />
           <input
             id="password"
@@ -76,10 +85,12 @@ const Login: React.FC = () => {
             onChange={e => setPassword(e.target.value)}
             required
             style={{ width: '100%', padding: '0.5rem' }}
+            className="password_label"
+            placeholder="password"
           />
         </div>
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit" style={{ padding: '0.5rem 1rem' }}>Login</button>
+        <button className="login_button" type="submit" style={{ padding: '0.5rem 1rem' }}>Login</button>
       </form>
     </div>
   );

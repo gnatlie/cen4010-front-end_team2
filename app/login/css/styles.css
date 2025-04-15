@@ -1,0 +1,31 @@
+.pixelify-sans-title {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.h1{
+    text-align: center;
+    background: #C89F70;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 30px;
+}
+
+.username_label{
+    background-color: #C89F70;
+}
+
+.password_label{
+    background-color: #C89F70;
+}
+
+.login_button{
+    background-color: #C89F70;
+}
+
+input::placeholder {
+    font-family: "Pixelify Sans", sans-serif;
+    color: #705848;
+    opacity: 1;
+  }
