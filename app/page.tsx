@@ -40,15 +40,22 @@ export default function Home() {
       </div>
 
       <div className="btn-group">
+        <div className="action-column">
+          <button onClick={updateClean}>Clean</button>
+          <label id="cleanLevel">{cleanLabel}/100</label>
+        </div>
 
-        <button onClick={updateClean}>Clean</button>
-        <label id="cleanLevel">{cleanLabel}/100</label>
+        <div className="action-column">
+          <button onClick={updateHunger}>Feed</button>
+          <label id="playLevel">{hungerLabel}/100</label>
+        </div>
 
-        <button onClick={updateHunger}>Feed</button>
-        <label id="playLevel">{hungerLabel}/100</label>
+        <div className="action-column">
+          <button onClick={updatePlay}>Play</button>
+          <label id="hungerLevel">{playLabel}/100</label>          
+        </div>
 
-        <button onClick={updatePlay}>Play</button>
-        <label id="hungerLevel">{playLabel}/100</label>
+
       </div>
     </div>
   );
