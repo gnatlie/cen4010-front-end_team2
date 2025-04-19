@@ -52,3 +52,8 @@ input::placeholder {
     color: #705848;
     opacity: 1;
 }
+
+.container::after{
+    display: table;
+    clear: both;
+}
