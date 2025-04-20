@@ -29,6 +29,14 @@ export default function Home() {
         <button>0:56</button>
       </div>
 
+      <div className="warning-btn-container">
+        <div className="triangle-wrapper" onClick={() => alert('Warning!')}>
+          <div className="triangle-warning-button"></div>
+          <span className="warning-icon">!</span>
+        </div>
+      </div>
+
+
       <div className="container">
         <div className="triangle-left"></div>
         <div className="oval-wrapper">
@@ -54,9 +62,8 @@ export default function Home() {
           <button onClick={updatePlay}>Play</button>
           <label id="hungerLevel">{playLabel}/100</label>          
         </div>
-
-
       </div>
+
     </div>
   );
 }

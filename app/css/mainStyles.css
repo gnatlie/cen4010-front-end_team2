@@ -123,3 +123,49 @@
   font-size: 1.2rem;
   color: #705848;
 }
+
+.warning-btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.triangle-wrapper {
+  width: 60px;
+  height: 52px;
+  position: relative;
+  background: red;
+  clip-path: polygon(
+    50% 0%,
+    100% 100%,
+    0% 100%
+  );
+  border-radius: 8px; /* This fakes "rounded" triangle corners */
+  cursor: pointer;
+}
+
+.warning-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
+  user-select: none;
+}
+
+.triangle-warning-button {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 52px solid red;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.triangle-warning-button:hover {
+  border-bottom-color: darkred;
+}
